@@ -1,0 +1,15 @@
+◆よく使うコマンド
+・ファイル追加
+git add -A
+git add (ファイル名)
+
+
+・コミット
+git commit -m "コメント"
+
+
+・ファイルアップロード
+git push origin master
+
+・更新
+git pull origin master
