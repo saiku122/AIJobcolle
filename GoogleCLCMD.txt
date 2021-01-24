@@ -1,0 +1,4 @@
+■gitのマウントコマンド
+!git clone https://github.com/saiku122/AIJobcolle.git
+
+cd /content/AIJobcolle/MachineLearning/python
