@@ -18,21 +18,21 @@ def main():
   X = df.iloc[:,1:-1]
 
   # preprocessing-1: one-hot encoding
-  X_ohe = [-------](X, dummy_na=True, columns=ohe_cols)
+  X_ohe =pd.get_dummies(X, dummy_na=True, columns=ohe_cols)
   X_ohe = X_ohe.dropna(axis=1, how='all')
   X_ohe_columns = X_ohe.columns.values
 
   # preprocessing-2: null imputation
-  imp = [-------]
+  imp = SimpleImputer()
   imp.fit(X_ohe)
-  X_ohe = pd.DataFrame([-------], columns=[-------])
+  X_ohe = pd.DataFrame(imp.transform(X_ohe), columns=X_ohe_columns)
   print(X_ohe.shape)
 
   # preprocessing-3: feature selection
   selector = RFECV(estimator=RandomForestClassifier(random_state=0),step=0.05)
   selector.fit(X_ohe, y.as_matrix().ravel())
   X_ohe_selected = selector.transform(X_ohe)
-  X_ohe_selected = pd.DataFrame(X_ohe_selected, columns=[-------])
+  X_ohe_selected = pd.DataFrame(X_ohe_selected, columns=X_ohe_columns[selector.support_])
   print(X_ohe_selected.shape)
   X_ohe_selected.head()
 
