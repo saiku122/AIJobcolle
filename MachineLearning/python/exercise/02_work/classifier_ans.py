@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import confusion_matrix
-from sklearn.externals import joblib
+import joblib
 
 def main():
   # data load
